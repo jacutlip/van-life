@@ -10,8 +10,20 @@ import {
     documentId
 } from "firebase/firestore/lite"
 
+
+
+/*
+*   Regarding Firebase API keys: https://firebase.google.com/docs/projects/api-keys
+*
+*   "API keys for Firebase services are not used to control access to backend resources; 
+*   that can only be done with Firebase Security Rules (to control which end users can access 
+*   resources) and Firebase App Check (to control which apps can access resources).
+*   Usually, you need to fastidiously guard API keys (for example, by using a vault service or 
+*   setting the keys as environment variables); however, API keys for Firebase services are OK 
+*   to include in code or checked-in config files."
+*/
 const firebaseConfig = {
-    apiKey: "AIzaSyD_k3v3HK3tKEqhlqFHPkwogW7PqEqhGhk",
+    apiKey: "AIzaSyD_k3v3HK3tKEqhlqFHPkwogW7PqEqhGhk", 
     authDomain: "vanlife-a1af5.firebaseapp.com",
     projectId: "vanlife-a1af5",
     storageBucket: "vanlife-a1af5.appspot.com",
@@ -22,7 +34,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
-// Refactoring the fetching functions below
 const vansCollectionRef = collection(db, "vans")
 
 export async function getVans() {
